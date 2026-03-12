@@ -1,23 +1,11 @@
 <?php
-    class Fruit {
-        public $name;
-        public $color;
-        
-        function __construct($name, $color) {
-            $this->name = $name;
-            $this->color = $color;
-        }
-        function get_details() {
-            echo "Name: " . $this->name . ". Color: " . $this->color .".<br>";
-        }
-    }
+    require 'Fruit.php';
 
     $apple = new Fruit('Apple', 'Red');
-    $apple->get_details(); 
-    $banana = new Fruit('Banana', 'Yellow');
-    $banana->get_details();
 
-    var_dump($apple instanceof Fruit);
-
+    //echo $apple->get_details() ;
+    //echo $apple->getName() ;
+    //echo $apple->getColor() ;
+    echo $apple->name ;
 ?>
 

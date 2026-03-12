@@ -33,14 +33,13 @@ Introduccion a las clases yu objetos en php
 
 ```php
 <?php
-    class Course {                             // se crea la clase  "no es necesario crear las variables primero"
-        public function __construct(
+    class Course {                             // tambien se puede se crear la clase de esta manera
+        public function __construct(           // "crear las variables en el constructor (dentro del parentesis)"
             public string $title,
             public string $subtitle,
             public string $description,
             public array $tags = []
-        ) {
-        }
+        ) {}
     }
 
     $course = new Course(                      // se crea un objeto de la clase Course
@@ -64,4 +63,68 @@ Introduccion a las clases yu objetos en php
   Queremos Aprender PHP desde cero
 
 
- ## video 08 (organización de clases )
+ ## video 08 (organización de clases)
+
+separamos archivos un archivo `Fruit.php` y `index.php`
+
+ ```php
+ # Fruit.php
+ <?php
+    class Fruit {
+        function __construct(
+            protected string $name,
+            protected string $color // protected para evitar que se modifique externamente
+            ) {}               
+        
+
+        public function getName(): string { return $this->name; }
+        public function getColor(): string { return $this->color; }
+
+
+        function get_details() {
+            echo "Name: " . $this->name . ". Color: " . $this->color .".<br>";
+        }
+    }
+?>
+ ```
+
+  ```php
+  # index.php
+ <?php
+    require 'Fruit.php';       // se importa aqui
+
+    $apple = new Fruit('Apple', 'Red');
+
+    echo $apple->get_details() ;
+    echo $apple->getName() ;
+    echo $apple->getColor() ;
+?>
+ ```
+
+ > Name: Apple. Color: Red.                          
+   Apple                         
+   Red
+
+
+ ## video 09 (metodos magicos)
+
+```php
+  # Fruit.php
+ <?php
+        public function getName(): string { return $this->name; }             ❌   // para evitar muchos geters
+        public function getColor(): string { return $this->color; }           ❌
+
+        public function __get($name){
+            if(property_exists($this, $name)) { return $this->$name; }        ✅   // geter magico
+            return null;
+        }
+?>
+ ```
+
+```php
+  # index.php
+ <?php
+        public function getName(): string { return $this->name; }          // ❌   para evitar muchos geters
+        public function getColor(): string { return $this->color; }           ❌
+?>
+ ```
