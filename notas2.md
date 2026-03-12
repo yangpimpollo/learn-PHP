@@ -39,4 +39,74 @@ $result = $client->chat()->create([
 ]);
 ?>
 ```
-> no funciona 
+> <h1>no funciona </h1>
+
+ ## video 02 (creacion y uso de variables)
+
+```php
+<?php
+$course = "Curso de PHP";     // se crea la variable
+?>
+
+<!DOCTYPE html>
+<html>
+    <head></head>        // usar la variable dentro de html
+    <body>       
+        <h1>Bienvenido al <?php echo $course; ?></h1>
+        <h1>Bienvenido al <?= $course ?></h1>       // se pude de las 2 maneras
+    </body>
+</html>
+```
+> <h1>Bienvenido al Curso de PHP</h1>
+
+ ## video 03 (condicionales)
+
+ 
+```php
+<?php
+$archived = true;     // se crea booleavo
+?>
+
+<!DOCTYPE html>
+<html>
+    <head></head>     
+    <body>       
+        <?php if(!$archived) { echo "archivado"; }else { echo "activo"; } ?>
+
+        <?php if($archived): ?> 
+            <p>archivado</p>
+        <?php else:?>   
+            <p>activo</p>     // separar logica de prog
+        <?php endif;?>        // con la presentación
+                              // tambien se puede usar operador ternario
+
+    </body>
+</html>
+```
+> <h1>activo</h1>
+
+ ## video 04 (arrays)
+
+ 
+```php
+<?php
+$archived = true;     // se crea booleavo
+?>
+
+<!DOCTYPE html>
+<html>
+    <head></head>     
+    <body>       
+        <?php if(!$archived) { echo "archivado"; }else { echo "activo"; } ?>
+
+        <?php if($archived): ?> 
+            <p>archivado</p>
+        <?php else:?>   
+            <p>activo</p>     // separar logica de prog
+        <?php endif;?>        // con la presentación
+                              // tambien se puede usar operador ternario
+
+    </body>
+</html>
+```
+> <h1>activo</h1>
