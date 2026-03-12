@@ -74,3 +74,74 @@ switch ($favcolor) {
 }
 ```
 > Your favorite color is red!
+
+* Bucles
+
+while, do while, for, foreach
+
+```php
+$i = 1;  
+while ($i < 6) {  
+  echo $i;  
+  $i++;  }
+
+//  continue; saltarse el ciclo actual
+//  break; cerrar ciclo 
+```
+> 12345 
+
+```php
+$i = 7;
+do {
+  echo $i;
+  $i++;
+} while ($i < 6);
+
+//  ejecuta al menos 1 vez
+```
+
+```php
+for ($x = 0; $x <= 10; $x++) {
+  echo "The number is: $x <br>";
+}
+```
+
+```php
+$colors = array("red", "green", "blue", "yellow");
+
+foreach ($colors as $value) {
+  echo "$value <br>";
+}
+
+```
+
+* Funciones
+```php
+function functionName($parameter1, $parameter2) {
+  // code to be executed
+  return $value; // optional
+}
+
+// se puede iniciar parametro predeterminado $parameter1=50
+// se puede argumentos de referencia (&$value)
+```
+
+* Arrays
+```php
+$cars = array("Volvo", "BMW", "Toyota");      // se pude contar      echo count($cars);
+$cars = ["Volvo", "BMW", "Toyota"];
+
+$myArr = array("Volvo", 15, ["apples", "bananas"]);      //tipo de datos diferentes
+echo $cars[0];     // acceso
+
+$car = array("brand"=>"Ford", "model"=>"Mustang", "year"=>1964);
+echo $car["model"];     // array asosiados
+
+// aumentar elementos
+$fruits = array("Apple", "Banana", "Cherry");
+$fruits[] = "Orange";
+
+$cars = array("brand" => "Ford", "model" => "Mustang");
+$cars["color"] = "Red";
+```
+
