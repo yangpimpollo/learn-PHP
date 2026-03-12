@@ -108,15 +108,22 @@ separamos archivos un archivo `Fruit.php` y `index.php`
 
  ## video 09 (metodos magicos)
 
+ metodos magicos empiezan con doble subguion __
+
 ```php
   # Fruit.php
  <?php
         public function getName(): string { return $this->name; }             ❌   // para evitar muchos geters
-        public function getColor(): string { return $this->color; }           ❌
+        public function getColor(): string { return $this->color; }           ❌   
 
         public function __get($name){
             if(property_exists($this, $name)) { return $this->$name; }        ✅   // geter magico
             return null;
+        }
+
+        ------------------------------------------------------------------------------------------------------------------
+        public function __toString(){                                              // comviete en string metodo magico
+            return "I am an ".$this->name." and I am ".$this->color.".";           // resultado personalizado
         }
 ?>
  ```
@@ -124,7 +131,23 @@ separamos archivos un archivo `Fruit.php` y `index.php`
 ```php
   # index.php
  <?php
-        public function getName(): string { return $this->name; }          // ❌   para evitar muchos geters
-        public function getColor(): string { return $this->color; }           ❌
+    require 'Fruit.php';
+    $apple = new Fruit('Apple', 'Red');
+
+    //echo $apple->getName() ;          ❌
+    //echo $apple->getColor() ;         ❌
+    echo $apple->name ; 
+    echo $apple->color ;                ✅   // llamamos directamente con el geter magico
+
+    ------------------------------------------------------------------------------------------------------------------
+    echo $apple;
 ?>
  ```
+
+ > Apple              
+   Red                          
+   I am an Apple and I am Red.
+
+
+ ## video 10 (Estructura profecional)
+
