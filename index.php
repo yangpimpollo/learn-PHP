@@ -1,21 +1,23 @@
 <?php
-    $course = [
-        'title' => 'Curso de PHP',
-        'subtitle' => 'Aprende PHP desde cero',
-        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
-        'tags' => ['php', 'programación', 'backend'],
-    ];
+    class Fruit {
+        public $name;
+        public $color;
+        
+        function __construct($name, $color) {
+            $this->name = $name;
+            $this->color = $color;
+        }
+        function get_details() {
+            echo "Name: " . $this->name . ". Color: " . $this->color .".<br>";
+        }
+    }
+
+    $apple = new Fruit('Apple', 'Red');
+    $apple->get_details(); 
+    $banana = new Fruit('Banana', 'Yellow');
+    $banana->get_details();
+
+    var_dump($apple instanceof Fruit);
+
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head></head>     
-    <body> 
-        <h2><?= $course['subtitle'] ?></h2>
-        <ul>
-            <?php foreach ($course['tags'] as $tag): ?>
-                <li><?= $tag ?></li>
-            <?php endforeach; ?>
-        </ul>
-    </body>
-</html>

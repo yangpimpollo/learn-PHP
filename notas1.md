@@ -2,6 +2,22 @@
 
 Resumen de **fundamentos de  PHP**. 
 
+para la terminal 🥲
+```linux
+cd carpeta1
+code .
+php -S localhost:8000
+
+cd - Moverse entre directorios
+ls - Listar archivos
+rm - Eliminar archivos o directorios
+mv - Mover o renombrar archivos o directorios
+mkdir - Para crear carpetas
+sudo - elevar permisos
+sudo su - cambiar al usuario Root
+clear - Limpiar la terminal
+```
+
 ## 0. Nociones Basicas
 
 * comentarios
