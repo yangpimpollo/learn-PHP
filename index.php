@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html>
-<body>
- 
 <?php
-$nombre = "John";
-$edad = 24;
-$peso = 85.3;
-$soltero = false;
-$estado = ($soltero)? "soltero" : "casado";
 
-// echo "$nombre de edad: $edad con peso de $peso Kg es $estado";
 
-$fruits = array("Apple", "Banana", "Cherry");
-$fruits[] = "Orange";
-var_dump($fruits);
+require __DIR__ . '/bootstrap.php';
+
+$client = OpenAI::client($_ENV['OPENAI_API_KEY']);
+
+$result = $client->chat()->create([
+    'model' => 'gpt-3.5-turbo',
+    'messages' => [
+        [
+            'role' => 'user',
+            'content' => 'cuando se llego la luna'
+        ]
+    ]
+
+]);
+
+echo $result->choices[0]->message->content;
+
+echo 33
 
 ?>
-
-
-
-</body>
-</html>
