@@ -85,28 +85,69 @@ $archived = true;     // se crea booleavo
 ```
 > <h1>activo</h1>
 
- ## video 04 (arrays)
+ ## video 04 (arrays) y 05 (for each)
 
  
 ```php
 <?php
-$archived = true;     // se crea booleavo
+// $tag_1 = "PHP";
+// $tag_2 = "Laravel";
+// $tag_3 = "Composer";
+
+$tags = ["PHP", "Laravel", "Composer"];     // crear un array
 ?>
 
 <!DOCTYPE html>
 <html>
     <head></head>     
     <body>       
-        <?php if(!$archived) { echo "archivado"; }else { echo "activo"; } ?>
+        <ul>
+            <li><?= $tags[0] ?></li>
+            <li><?= $tags[1] ?></li>
+            <li><?= $tags[2] ?></li>
 
-        <?php if($archived): ?> 
-            <p>archivado</p>
-        <?php else:?>   
-            <p>activo</p>     // separar logica de prog
-        <?php endif;?>        // con la presentación
-                              // tambien se puede usar operador ternario
+            <?php foreach ($tags as $tag): ?>
+                <li><?= $tag ?></li>            // recorre el array
+            <?php endforeach; ?>
+        </ul>
 
     </body>
 </html>
 ```
-> <h1>activo</h1>
+
+>   . PHP                          
+   . Laravel                             
+   . Composer
+
+ ## video 06 (arreglos asociativos)
+
+ 
+```php
+<?php
+    $course = [
+        'title' => 'Curso de PHP',
+        'subtitle' => 'Aprende PHP desde cero',
+        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.',
+        'tags' => ['php', 'programación', 'backend'],
+    ];
+?>
+
+<!DOCTYPE html>
+<html>
+    <head></head>     
+    <body> 
+        <h2><?= $course['subtitle'] ?></h2>
+        <ul>
+            <?php foreach ($course['tags'] as $tag): ?>
+                <li><?= $tag ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </body>
+</html>
+
+```
+
+>   Aprende PHP desde cero   
+   . PHP                          
+   . Laravel                             
+   . Composer
