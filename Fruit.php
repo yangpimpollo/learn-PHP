@@ -25,7 +25,7 @@
         }
 
         public function __toString(){
-            return "I am an ".$this->name." and I am ".$this->color."y soy".$type.".";
+            return "I am an ".$this->name." and I am ".$this->color." and I am ".$this->type->label().".";
         }
     }
 

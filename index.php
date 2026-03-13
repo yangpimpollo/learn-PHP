@@ -1,7 +1,7 @@
 <?php
     require 'Fruit.php';
 
-    $apple = new Fruit('Apple', 'Red');
+    $apple = new Fruit(name: 'Apple', color: 'Red', type: FruitType::ACIDIC);
     $banana = new Fruit('Banana', 'Yellow');
 
     //echo $apple->get_details() ;
