@@ -223,7 +223,7 @@ programar con intencion! para que se entienda mejor
 ## video 23 (Adaptando al navegador)
 
 creamos carpeta public ponemos al `index.php` ahi iniciamos el servidor con `php -S localhost:8000 -t public`
-modificamos algunas funciones de chat
+modificamos algunas funciones de chat usamos el modelo Ollama.
 
 ```php
  # index.php
