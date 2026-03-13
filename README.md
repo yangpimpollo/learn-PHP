@@ -4,13 +4,22 @@
 
 Resumen del curso. Haz clic en cada sección para ver los detalles de los videos.
 
+## Primera PARTE
+
 | Archivo | Contenido | Estado |
 | :--- | :--- | :---: |
-[📂 Notas1](./notas/notas1.md) | Notas introductorias | 🚀 |
+[📂 Notas1](./notas/notas1.md) |    Recordando.....   | 🚀 |
 [📂 Notas2](./notas/notas2.md) |    Videos 01 al 06   | 🍕 |
 [📂 Notas3](./notas/notas3.md) |    Videos 07 al 10   | 🦁 |
 [📂 Notas4](./notas/notas4.md) |    Videos 11 al 15   | 🐧 |
 [📂 Notas5](./notas/notas5.md) |    Videos 16 al 23   | 🤢 |
 
+
+## Segunda PARTE
+
+| Archivo | Contenido | Estado |
+| :--- | :--- | :---: |
+[📂 Notas6](./notas/notas6.md) |    Videos 01 al 06   | 🍔 |
+[📂 Notas7](./notas/notas7.md) |    Videos 01 al 06   | 🍕 |
 ---
 *Última actualización: 13 de marzo de 2026*
