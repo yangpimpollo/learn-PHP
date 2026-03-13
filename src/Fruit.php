@@ -1,5 +1,6 @@
 <?php
-    require 'FruitType.php';
+    
+    namespace App;
 
     class Fruit {
         function __construct(

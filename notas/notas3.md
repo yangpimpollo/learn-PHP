@@ -149,5 +149,61 @@ separamos archivos un archivo `Fruit.php` y `index.php`
    I am an Apple and I am Red.
 
 
- ## video 10 (Estructura profecional)
+ ## video 10 (Estructura profecional separar archivos)
+
+```php
+  # FruitType.php
+ <?php
+    enum FruitType: string                            // hacemos una clase enumeración
+    {
+        case SWEET = 'sweet';
+        case ACIDIC = 'acid';
+
+        public function label(): string               // funcion personalizada
+        {
+            return match ($this) {
+                self::SWEET => 'sweet fruit',
+                self::ACIDIC => 'acid fruit',
+            };
+        }
+    }
+?>
+ ```
+
+ ```php
+  # Fruit.php
+ <?php
+    require 'FruitType.php';                   // importamos el tipo de dato FruitType
+
+    class Fruit {
+        function __construct(
+            protected string $name,
+            protected string $color, 
+            protected FruitType $type = FruitType::SWEET           // añadimos nuevo parametro type 
+            ) {}                                                   // de valor predeterminado SWEET
+        
+        public function __toString(){
+            return "I am an ".$this->name." and I am ".$this->color." and I am ".$this->type->label().".";
+        }
+    }                                         //   $this->type->value        da su valor 'sweet' o 'acid'
+?>                                            //   $this->type->label()      la funcion personalizada label de FruiType
+ ```
+
+ ```php
+  # index.php
+<?php
+    require 'Fruit.php';           // importamos Fruit
+
+        // se puede crear con las etiquetas de cada parametro o sin ellas
+
+    $apple = new Fruit(name: 'Apple', color: 'Red', type: FruitType::ACIDIC);     
+    $banana = new Fruit('Banana', 'Yellow', FruitType::SWEET);               
+    
+    echo $apple;            // llama la funcion __toString() de Fruit
+    echo $banana; 
+?>                                         
+ ```
+ > I am an Apple and I am Red and I am acid fruit.                                     
+   I am an Banana and I am Yellow and I am sweet fruit.
+
 

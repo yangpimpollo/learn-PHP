@@ -4,7 +4,7 @@ Resumen de **fundamentos de  PHP** de platzi
 
  ## video 01 (php sigue siendo relevante)
 
-<img src="res/image.png" width="20%" style="float: left; margin-right: 100px;">
+<img src="../res/image.png" width="20%" style="float: left; margin-right: 100px;">
 
 * 78% funciona con PHP (instagram, wikipedia, wordpress)
 * facil integración

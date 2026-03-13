@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 enum FruitType: string
 {
     case SWEET = 'sweet';
@@ -15,4 +17,4 @@ enum FruitType: string
 }
 
 
-//
+?>
