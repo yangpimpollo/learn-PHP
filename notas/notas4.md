@@ -178,9 +178,66 @@ al finalizar podemos observar en `http://localhost:11434/` que el modelo esta co
 
 
 ```php
+ # OllamaAIservice.php
+<?php
 
+namespace App;
 
+use ArdaGnsrn\Ollama\Ollama;
+
+class OllamaAIservice 
+{
+    protected $client;
+
+    public function __construct(){ $this->client = Ollama::client(); }
+
+    public function getResponse(string $input): string {
+        $result = $this->client->chat()->create([
+            'model' => 'llama3.2:1b',
+            'messages' => [ ['role' => 'user', 'content' => $input], ],
+        ]);
+        return $result->message->content;        
+    }
+}
 ```
+
+en el ejecutable tambien modificamos
+
+```php
+ # ai
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use App\FruitAIservice;
+use App\OllamaAIservice;
+
+$aiService = new OllamaAIservice();
+
+echo 'Ask anything to AI' . PHP_EOL;
+
+while (true) {
+
+    $input = readline('> ');
+    if ($input === 'exit' || $input === '') break;
+    
+    $response = $aiService->getResponse($input);
+    echo $response . PHP_EOL;
+    
+}
+```
+3. el model se puede obtener desde la consola con `ollama list` obtenemos `llama3.2:1b` que instalamos anteriormente
+
+```bach
+yangpimpollo@PC--086:~/carpeta1$ ollama list
+NAME           ID              SIZE      MODIFIED       
+llama3.2:1b    baf6a787fdff    1.3 GB    36 minutes ago    
+yangpimpollo@PC--086:~/carpeta1$ ./bin/ai
+Ask anything to AI
+>> llama es modelo de Meta?
+Meta construye tecnologías que ayudan a la comunidad a . . . 
+```
+
 
 
 
