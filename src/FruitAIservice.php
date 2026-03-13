@@ -2,7 +2,7 @@
 
 namespace App;
 
-class FruitAIservice 
+class FruitAIservice implements ServiceInterface
 {
     public function getResponse(string $input): string 
     {

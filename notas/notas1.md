@@ -7,6 +7,7 @@ para la terminal 🥲
 cd carpeta1
 code .
 php -S localhost:8000
+php -S localhost:8000 -t public
 
 cd - Moverse entre directorios
 ls - Listar archivos
