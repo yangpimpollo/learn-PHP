@@ -171,7 +171,16 @@ Use """ to begin a multi-line message.
 al finalizar podemos observar en `http://localhost:11434/` que el modelo esta corriendo con el mensaje: *Ollama is running*
 
 
+  ## video 15 (Integración de Olama en nuestro proyecto)
 
+1. instalamos ollama en nuestro proyecto con composer con el comando `composer require ardagnsrn/ollama-php` se modificara el archivo composer.json y se creara composer.lock    
+2. creamos una clase `OllamaAIservice.php` dentro src revisar la documención de como implementarse en `https://github.com/ArdaGnsrn/ollama-php`
+
+
+```php
+
+
+```
 
 
 

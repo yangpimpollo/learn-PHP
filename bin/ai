@@ -4,8 +4,9 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\FruitAIservice;
+use App\OllamaAIservice;
 
-$aiService = new FruitAIservice();
+$aiService = new OllamaAIservice();
 
 echo 'Ask anything to AI' . PHP_EOL;
 
