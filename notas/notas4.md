@@ -1,5 +1,9 @@
 # NOTAS DE APRENDIZAJE 4 PHP (●'◡'●)🐧
 
+<img src="../res/image02.png" width="100%" style="float: left; margin-right: 100px;">
+
+
+
  ## video 11 (Autocarga de clases)
 
  para evitar importar a cada rato `require classA.php` utilizamos `composer` para autocargar
@@ -53,17 +57,13 @@ namespace App;
 echo 'Ask anything to AI' . PHP_EOL;
 
 while (true) {
-    $input = readline('> ');
 
-    if ($input === 'exit' || $input === '') {
-        break;
-    }  
-
-    echo 'Thinking...' . PHP_EOL;
-
-    sleep(2);
-
-    echo 'Fake response: ' . $input . PHP_EOL;
+    $input = readline('> ');                                 // espera entrada
+    if ($input === 'exit' || $input === '') break;           // si es exit o nada ce cierra
+    
+    echo 'Thinking...' . PHP_EOL;                            // responde pensando PHP_EOL salta de linea
+    sleep(2);                                                // espera 2 segundos
+    echo 'Fake response: ' . $input . PHP_EOL;               // responde "respuesta falsa"
 }
 
 ```
@@ -82,4 +82,97 @@ while (true) {
     yangpimpollo@PC--086:~/carpeta1$ 
 ```
     > 🆘✅❇️  [ **BUENA PRACTICA** ]                       
-    Si haces el chmod +x y luego haces un git commit, la próxima vez que descargues el proyecto en otra PC (o alguien más lo haga), el archivo ya tendrá el permiso de ejecución y no habrá que repetirlo. ✨
+        Si haces el chmod +x y luego haces un git commit, la próxima vez que descargues el proyecto en otra PC (o alguien más lo haga), el archivo ya tendrá el permiso de ejecución y no habrá que repetirlo. ✨
+
+
+  ## video 13 (Clases de servicio)
+
+  en src creamos una clase `FruitAIservice` y delegamos en trabajo de reponder a la clase
+
+```php
+  # FruitAIservice.php
+<?php
+
+namespace App;
+
+class FruitAIservice 
+{
+    public function getResponse(string $input): string 
+    {
+        echo 'Thinking...' . PHP_EOL;
+        sleep(2);
+        return 'Fake response: ' . $input ;
+    }
+}
+```
+
+```php
+  # ai
+
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use App\FruitAIservice;
+
+$aiService = new FruitAIservice();
+
+echo 'Ask anything to AI' . PHP_EOL;
+
+while (true) {
+
+    $input = readline('> ');
+    if ($input === 'exit' || $input === '') break;
+    
+    $response = $aiService->getResponse($input);
+    echo $response . PHP_EOL;
+    
+}
+```
+
+<img src="../res/image03.png" width="100%" style="float: left; margin-right: 100px;">
+
+  ## video 14 (Instalar Olama)
+
+abrir terminal instalamos ollama con `brew install ollama` no sirve estoy en ubuntu y no tengo brew lo instalo directamente 
+`curl -fsSL https://ollama.com/install.sh | sh` y corremos llama3.2 `ollama run llama3.2:1b` que es ligero se descargara 1.3Gb 
+lugo de concluir nos mostrara para interactuar con llama:
+
+```bash
+
+yangpimpollo@PC--086:~/carpeta1$ ollama run llama3.2:1b
+pulling manifest 
+pulling 74701a8c35f6: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████▏ 1.3 GB                         
+pulling 966de95ca8a6: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████▏ 1.4 KB                         
+pulling fcc5a6bec9da: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████▏ 7.7 KB                         
+pulling a70ff7e570d9: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████▏ 6.0 KB                         
+pulling 4f659a1e86d7: 100% ▕█████████████████████████████████████████████████████████████████████████████████████████████████▏  485 B                         
+verifying sha256 digest 
+writing manifest 
+success 
+>>> por que los gatos tiene 7 vidas
+No hay evidencia científica que sugiera que los gatos tengan 7 vidas. De hecho, los gatos . . .
+
+>>> /?
+Available Commands:
+  /set            Set session variables
+  /show           Show model information
+  /load <model>   Load a session or model
+  /save <model>   Save your current session
+  /clear          Clear session context
+  /bye            Exit
+  /?, /help       Help for a command
+  /? shortcuts    Help for keyboard shortcuts
+
+Use """ to begin a multi-line message.
+```
+
+al finalizar podemos observar en `http://localhost:11434/` que el modelo esta corriendo con el mensaje: *Ollama is running*
+
+
+
+
+
+
+
